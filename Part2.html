@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Фірма "Мебляр-Люкс"</title>
+  <style>
+    :root {
+      --bg: #f4efe9;
+      --panel: #fffaf5;
+      --primary: #6f4e37;
+      --secondary: #b98b5b;
+      --accent: #d9c3a5;
+      --text: #2f261f;
+      --muted: #6b5c52;
+      --line: #e7d9ca;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #f6f2ee 0%, #efe6dc 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), #8d6750);
+      color: white;
+      padding: 40px 0 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 2.3rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-top: 8px;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.4fr 0.9fr;
+      gap: 28px;
+      padding: 35px 0 20px;
+      align-items: center;
+    }
+
+    .hero-card, .info-card, .product-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 6px 20px rgba(93, 72, 55, 0.08);
+    }
+
+    .hero-card {
+      padding: 30px;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      color: var(--text);
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 15px;
+    }
+
+    .lead {
+      font-size: 1.08rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .stat {
+      flex: 1 1 140px;
+      background: #f8f0e7;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .hero-visual {
+      background: linear-gradient(180deg, #f5dfc7 0%, #e8c69a 100%);
+      min-height: 260px;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(111, 78, 55, 0.18);
+    }
+
+    .sofa {
+      position: absolute;
+      left: 50%;
+      bottom: 25px;
+      transform: translateX(-50%);
+      width: 260px;
+      height: 120px;
+      background: #9d7a62;
+      border-radius: 22px 22px 18px 18px;
+      box-shadow: inset 0 -12px 0 rgba(0,0,0,0.08);
+    }
+
+    .sofa::before, .sofa::after {
+      content: "";
+      position: absolute;
+      bottom: 20px;
+      width: 52px;
+      height: 62px;
+      background: #b58b6a;
+      border-radius: 18px;
+    }
+
+    .sofa::before { left: 18px; }
+    .sofa::after { right: 18px; }
+
+    .backrest {
+      position: absolute;
+      left: 50%;
+      top: 42px;
+      transform: translateX(-50%);
+      width: 230px;
+      height: 70px;
+      background: #a77d5d;
+      border-radius: 18px 18px 10px 10px;
+    }
+
+    .section {
+      padding: 18px 0;
+    }
+
+    .grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .info-card, .product-card {
+      padding: 24px;
+    }
+
+    .info-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+    }
+
+    .info-card p, .product-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    th, td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      background: #f3e4d2;
+      color: var(--primary);
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .price {
+      font-weight: bold;
+      color: var(--primary);
+      font-size: 1.05rem;
+    }
+
+    footer {
+      margin-top: 25px;
+      padding: 22px 0 35px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 830px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .brand {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div>
+        <div class="brand">Мебляр-Люкс</div>
+        <div class="tagline">Виробництво якісних меблів для дому та офісу</div>
+      </div>
+      <div class="badge">Надійність • Стиль • Комфорт</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Творимо комфорт у кожному просторі</h1>
+        <p class="lead">
+          Компанія «Мебляр-Люкс» спеціалізується на виробництві сучасних меблів, які поєднують
+          якість, практичність та дизайнерський стиль. Ми виготовляємо вироби для житлових приміщень,
+          офісних зон та комерційних об'єктів за індивідуальними потребами клієнтів.
+        </p>
+        <div class="stats">
+          <div class="stat">
+            <strong>12+</strong>
+            років досвіду
+          </div>
+          <div class="stat">
+            <strong>3500</strong>
+            меблів на рік
+          </div>
+          <div class="stat">
+            <strong>96%</strong>
+            задоволених клієнтів
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Зображення меблів">
+        <div class="backrest"></div>
+        <div class="sofa"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid">
+        <article class="info-card">
+          <h3>Про компанію</h3>
+          <p>
+            Наша фірма працює на ринку меблевого виробництва, використовуючи сучасне обладнання,
+            перевірені матеріали та професійний підхід до кожного замовлення. Ми прагнемо створювати
+            меблі, які служать довго і радують своїм виглядом.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h3>Наші переваги</h3>
+          <p>
+            Власне виробництво, індивідуальний дизайн, контроль якості, розумні ціни, швидка доставка
+            та сервісне обслуговування. Команда фахівців допомагає вибрати оптимальне рішення для будь-якого інтер'єру.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h3>Співпраця</h3>
+          <p>
+            Ми співпрацюємо з приватними клієнтами, бізнесом, дизайнерами та архітекторами. Завдяки
+            гнучким умовам партнерства ми забезпечуємо якісний результат на будь-якому етапі реалізації проекту.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Основна продукція</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Вид</th>
+            <th>Марка</th>
+            <th>Матеріал</th>
+            <th>Постачальник</th>
+            <th>Ціна</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Крісло офісне</td>
+            <td>Comfort Pro 220</td>
+            <td>Метал, тканина, поролон</td>
+            <td>ТД «Меблеві Сировини»</td>
+            <td class="price">5 400 грн</td>
+          </tr>
+          <tr>
+            <td>Стіл кухонний</td>
+            <td>Home Style 310</td>
+            <td>МДФ, дерев'яна кромка, ламінат</td>
+            <td>Промислова база «ЛісМебель»</td>
+            <td class="price">8 950 грн</td>
+          </tr>
+          <tr>
+            <td>Шафа-купе</td>
+            <td>Elegant Line 54</td>
+            <td>Ламіноване ДСП, профіль, дзеркало</td>
+            <td>Компанія «ЕкоФорм»</td>
+            <td class="price">18 700 грн</td>
+          </tr>
+          <tr>
+            <td>Ліжко</td>
+            <td>Relax Max 180</td>
+            <td>Массив дерева, метал, текстиль</td>
+            <td>Фірма «Дерев'яна Мебель»</td>
+            <td class="price">14 300 грн</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 «Мебляр-Люкс» — виробництво меблів для комфортного життя
+  </footer>
+</body>
+</html>
